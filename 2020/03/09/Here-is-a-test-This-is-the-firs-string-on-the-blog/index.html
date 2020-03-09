@@ -5,16 +5,19 @@
   
 
   
-  <title>Here is a test. This is the firs string on the blog | Hexo</title>
+  <title>Here is my C++ notes. As a test for markdown randering. | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
-<meta property="og:title" content="Here is a test. This is the firs string on the blog">
+  <meta name="description" content="02-11 first classcontect infoDr. Dmitriy Dunaevdunaev@aut.bme.huQB224for informations: www.aut.bme.hu&#x2F;Course&#x2F;bop2use eduID to login. course requiremententry test (5min) before every lab5 control tests">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Here is my C++ notes. As a test for markdown randering.">
 <meta property="og:url" content="http://yoursite.com/2020/03/09/Here-is-a-test-This-is-the-firs-string-on-the-blog/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="02-11 first classcontect infoDr. Dmitriy Dunaevdunaev@aut.bme.huQB224for informations: www.aut.bme.hu&#x2F;Course&#x2F;bop2use eduID to login. course requiremententry test (5min) before every lab5 control tests">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-03-09T13:34:33.000Z">
-<meta property="article:modified_time" content="2020-03-09T13:34:33.345Z">
+<meta property="article:modified_time" content="2020-03-09T14:29:53.158Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="test">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -78,7 +81,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Here is a test. This is the firs string on the blog
+      Here is my C++ notes. As a test for markdown randering.
     </h1>
   
 
@@ -86,18 +89,80 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h1 id="02-11-first-class"><a href="#02-11-first-class" class="headerlink" title="02-11 first class"></a>02-11 first class</h1><h2 id="contect-info"><a href="#contect-info" class="headerlink" title="contect info"></a>contect info</h2><p>Dr. Dmitriy Dunaev<br><a href="mailto:dunaev@aut.bme.hu">dunaev@aut.bme.hu</a><br>QB224<br>for informations: <a href="http://www.aut.bme.hu/Course/bop2" target="_blank" rel="noopener">www.aut.bme.hu/Course/bop2</a><br>use eduID to login.</p>
+<h2 id="course-requirement"><a href="#course-requirement" class="headerlink" title="course requirement"></a>course requirement</h2><p>entry test (5min) before every lab<br>5 control tests (15min) during lab<br>2 Midterms</p>
+<h2 id="What-is-inside-the-compiler"><a href="#What-is-inside-the-compiler" class="headerlink" title="What is inside the compiler?"></a>What is inside the compiler?</h2><p>soource code -&gt; preprocessor -&gt; compiler -&gt; Linker -&gt; exe</p>
+<h3 id="preprocessor"><a href="#preprocessor" class="headerlink" title="preprocessor"></a>preprocessor</h3><ol>
+<li>copy the header, replace the constent.</li>
+<li>delete comments.</li>
+</ol>
+<h3 id="compiler"><a href="#compiler" class="headerlink" title="compiler"></a>compiler</h3><ol>
+<li>check errors.</li>
+<li>compiling to object code.</li>
+</ol>
+<h3 id="Linker"><a href="#Linker" class="headerlink" title="Linker"></a>Linker</h3><p>combine all object files and DLL(Dynamic linked library)</p>
+<h2 id="Difference"><a href="#Difference" class="headerlink" title="Difference"></a>Difference</h2><p>pass arguments<br>C:by value, by address<br>CPP: one more that C — By reference </p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> x;</span><br><span class="line"><span class="keyword">int</span>* px= &amp;x;</span><br><span class="line"><span class="keyword">int</span>&amp; y=x; <span class="comment">// y becomes an aliase of x. y is called reference variable.</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span>&amp; <span class="title">func</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span>&amp; v)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> a=<span class="number">10</span>;</span><br><span class="line">	<span class="keyword">return</span> a;</span><br><span class="line">	<span class="comment">// or</span></span><br><span class="line">	x++;</span><br><span class="line">	<span class="keyword">return</span> x;</span><br><span class="line">	<span class="comment">// or</span></span><br><span class="line">	v++;</span><br><span class="line">	<span class="keyword">return</span> v;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> a,b = <span class="number">1.</span> c = <span class="number">0</span>;</span><br><span class="line">	</span><br><span class="line">	a = func(<span class="number">1</span>,<span class="number">2</span>); <span class="comment">// bab, 2 is not a variable.</span></span><br><span class="line">	a = func(b,c);</span><br><span class="line">	a = func(<span class="number">1</span>,c);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>:</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><em>Rule!! Do not return reference to local variable or parameter</em></p>
+<h2 id="diference-between-reference-and-pointer"><a href="#diference-between-reference-and-pointer" class="headerlink" title="diference between reference and pointer"></a>diference between reference and pointer</h2><ol>
+<li>pointer can be declear but not defined. reference can not be decleared only.</li>
+</ol>
+<h2 id="What-define-the-function"><a href="#What-define-the-function" class="headerlink" title="What define the function"></a>What define the function</h2><ul>
+<li>in C only the name define the function</li>
+<li>in CPP name and parameter list</li>
+</ul>
+<h2 id="defualt-arguments"><a href="#defualt-arguments" class="headerlink" title="defualt arguments"></a>defualt arguments</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">F</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y=<span class="number">10</span>, <span class="keyword">double</span> z=<span class="number">3.33</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123; <span class="comment">/*sth sth*/</span>&#125;</span><br></pre></td></tr></table></figure>
+<p>If we don’t pass any value to y and z they will be 10 and 3.33 by defult.</p>
+<h2 id="constent-in-parameter"><a href="#constent-in-parameter" class="headerlink" title="constent in parameter"></a>constent in parameter</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">function(<span class="keyword">const</span> <span class="keyword">int</span> input, <span class="keyword">double</span> input2)</span><br></pre></td></tr></table></figure>
+<h2 id="in-line-functions"><a href="#in-line-functions" class="headerlink" title="in line functions?"></a>in line functions?</h2><h2 id="Object-ori-programming-OOP"><a href="#Object-ori-programming-OOP" class="headerlink" title="Object ori. programming OOP"></a>Object ori. programming OOP</h2><h3 id="Concepts"><a href="#Concepts" class="headerlink" title="Concepts:"></a>Concepts:</h3><ol>
+<li><p>encapsulation</p>
+</li>
+<li><p>data hiding (information hiding)</p>
+</li>
+<li><p>inheritance -&gt; polymorphism</p>
+<h3 id="class"><a href="#class" class="headerlink" title="class"></a>class</h3><p>A class is a user-defined data type, which defines:</p>
+</li>
+<li><p>data and operations (structers only store data in standered C)</p>
+</li>
+<li></li>
+<li><p>instantiate/release</p>
+</li>
+<li><p>How to excute the operations</p>
+<h4 id="example"><a href="#example" class="headerlink" title="example"></a>example</h4><p>to draw a white pixel on the screen</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//In standered C</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">point</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">int</span> x;</span><br><span class="line">	<span class="keyword">int</span> y;</span><br><span class="line">&#125;</span><br><span class="line"> <span class="function"><span class="keyword">void</span> <span class="title">draw</span> <span class="params">(struct <span class="built_in">point</span> p)</span></span></span><br><span class="line"><span class="function"> </span>&#123;</span><br><span class="line">	 <span class="comment">//.....</span></span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"> </span>&#123;</span><br><span class="line">	 sturct <span class="built_in">point</span> A;</span><br><span class="line">	 <span class="class"><span class="keyword">struct</span> <span class="title">A</span>.<span class="title">x</span> = 20;</span> <span class="class"><span class="keyword">struct</span> <span class="title">A</span>.<span class="title">y</span> = 70;</span></span><br><span class="line">	 draw(A;)</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//In CPP</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">point</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="keyword">int</span> x; 				<span class="comment">// ATTRIBUTES</span></span><br><span class="line">	<span class="keyword">int</span> y;				<span class="comment">// ATTRIBUTES</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">draw</span><span class="params">(...)</span></span>&#123;...&#125; 	<span class="comment">//Methods</span></span><br><span class="line"><span class="comment">// Let's write a function to reset x coordnite</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setx</span><span class="params">(<span class="keyword">int</span> new_x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	x = new_x;</span><br><span class="line">&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"> <span class="function">point <span class="title">A</span><span class="params">()</span></span>;</span><br><span class="line"> A.x = <span class="number">20</span>; A.y = <span class="number">70</span>;</span><br><span class="line"> A.draw();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="writeing-class-methods"><a href="#writeing-class-methods" class="headerlink" title="writeing class methods"></a>writeing class methods</h3><ol>
+<li>Inline</li>
+<li>Separately (code + header)<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// header A.h</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"> <span class="keyword">public</span>:</span><br><span class="line"> <span class="keyword">int</span> x;</span><br><span class="line"> <span class="function"><span class="keyword">void</span> <span class="title">setx</span> <span class="params">(<span class="keyword">int</span> new_x)</span></span>;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">include <span class="string">"A.h"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">A::setx</span><span class="params">(<span class="keyword">int</span> new_x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	x = new_x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+
       
     </div>
     <footer class="article-footer">
       <a data-url="http://yoursite.com/2020/03/09/Here-is-a-test-This-is-the-firs-string-on-the-blog/" data-id="ck7kipw3a0001602kfde08tqv" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/test/" rel="tag">test</a></li></ul>
+
     </footer>
   </div>
   
     
 <nav id="article-nav">
+  
+    <a href="/2020/03/09/Notes-for-Jerry/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Notes for Jerry
+        
+      </div>
+    </a>
   
   
     <a href="/2020/03/09/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
@@ -118,9 +183,23 @@
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/test/" rel="tag">test</a></li></ul>
+    </div>
+  </div>
+
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/test/" style="font-size: 10px;">test</a>
+    </div>
+  </div>
+
   
     
   <div class="widget-wrap">
@@ -139,7 +218,11 @@
       <ul>
         
           <li>
-            <a href="/2020/03/09/Here-is-a-test-This-is-the-firs-string-on-the-blog/">Here is a test. This is the firs string on the blog</a>
+            <a href="/2020/03/09/Notes-for-Jerry/">Notes for Jerry</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/09/Here-is-a-test-This-is-the-firs-string-on-the-blog/">Here is my C++ notes. As a test for markdown randering.</a>
           </li>
         
           <li>
