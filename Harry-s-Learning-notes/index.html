@@ -153,8 +153,30 @@
 </ol>
 <h3 id="Linker"><a href="#Linker" class="headerlink" title="Linker"></a>Linker</h3><p>combine all object files and DLL(Dynamic linked library)</p>
 <h2 id="Difference"><a href="#Difference" class="headerlink" title="Difference"></a>Difference</h2><p>pass arguments<br>C:by value, by address<br>CPP: one more that C — By reference </p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> x;</span><br><span class="line"><span class="keyword">int</span>* px= &amp;x;</span><br><span class="line"><span class="keyword">int</span>&amp; y=x; <span class="comment">// y becomes an aliase of x. y is called reference variable.</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span>&amp; <span class="title">func</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span>&amp; v)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> a=<span class="number">10</span>;</span><br><span class="line">	<span class="keyword">return</span> a;</span><br><span class="line">	<span class="comment">// or</span></span><br><span class="line">	x++;</span><br><span class="line">	<span class="keyword">return</span> x;</span><br><span class="line">	<span class="comment">// or</span></span><br><span class="line">	v++;</span><br><span class="line">	<span class="keyword">return</span> v;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> a,b = <span class="number">1.</span> c = <span class="number">0</span>;</span><br><span class="line">	</span><br><span class="line">	a = func(<span class="number">1</span>,<span class="number">2</span>); <span class="comment">// bab, 2 is not a variable.</span></span><br><span class="line">	a = func(b,c);</span><br><span class="line">	a = func(<span class="number">1</span>,c);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>:</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="CPP">int x;
+int* px= &amp;x;
+int&amp; y=x; // y becomes an aliase of x. y is called reference variable.</code></pre>
+<pre><code class="CPP">int&amp; func(int x, int&amp; v)
+{
+    int a=10;
+    return a;
+    // or
+    x++;
+    return x;
+    // or
+    v++;
+    return v;
+}
+
+int main()
+{
+    int a,b = 1. c = 0;
+
+    a = func(1,2); // bab, 2 is not a variable.
+    a = func(b,c);
+    a = func(1,c);
+    return 0:
+}</code></pre>
 <p><em>Rule!! Do not return reference to local variable or parameter</em></p>
 <h2 id="diference-between-reference-and-pointer"><a href="#diference-between-reference-and-pointer" class="headerlink" title="diference between reference and pointer"></a>diference between reference and pointer</h2><ol>
 <li>pointer can be declear but not defined. reference can not be decleared only.</li>
@@ -163,9 +185,10 @@
 <li>in C only the name define the function</li>
 <li>in CPP name and parameter list</li>
 </ul>
-<h2 id="defualt-arguments"><a href="#defualt-arguments" class="headerlink" title="defualt arguments"></a>defualt arguments</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">F</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y=<span class="number">10</span>, <span class="keyword">double</span> z=<span class="number">3.33</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123; <span class="comment">/*sth sth*/</span>&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="defualt-arguments"><a href="#defualt-arguments" class="headerlink" title="defualt arguments"></a>defualt arguments</h2><pre><code class="cpp">int F(int x, int y=10, double z=3.33)
+{ /*sth sth*/}</code></pre>
 <p>If we don’t pass any value to y and z they will be 10 and 3.33 by defult.</p>
-<h2 id="constent-in-parameter"><a href="#constent-in-parameter" class="headerlink" title="constent in parameter"></a>constent in parameter</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">function(<span class="keyword">const</span> <span class="keyword">int</span> input, <span class="keyword">double</span> input2)</span><br></pre></td></tr></table></figure>
+<h2 id="constent-in-parameter"><a href="#constent-in-parameter" class="headerlink" title="constent in parameter"></a>constent in parameter</h2><pre><code class="cpp">function(const int input, double input2)</code></pre>
 <h2 id="in-line-functions"><a href="#in-line-functions" class="headerlink" title="in line functions?"></a>in line functions?</h2><h2 id="Object-ori-programming-OOP"><a href="#Object-ori-programming-OOP" class="headerlink" title="Object ori. programming OOP"></a>Object ori. programming OOP</h2><h3 id="Concepts"><a href="#Concepts" class="headerlink" title="Concepts:"></a>Concepts:</h3><ol>
 <li><p>encapsulation</p>
 </li>
@@ -181,34 +204,109 @@
 </li>
 <li><p>How to excute the operations</p>
 <h4 id="example"><a href="#example" class="headerlink" title="example"></a>example</h4><p>to draw a white pixel on the screen</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//In standered C</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">point</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">int</span> x;</span><br><span class="line">	<span class="keyword">int</span> y;</span><br><span class="line">&#125;</span><br><span class="line"> <span class="function"><span class="keyword">void</span> <span class="title">draw</span> <span class="params">(struct <span class="built_in">point</span> p)</span></span></span><br><span class="line"><span class="function"> </span>&#123;</span><br><span class="line">	 <span class="comment">//.....</span></span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"> </span>&#123;</span><br><span class="line">	 sturct <span class="built_in">point</span> A;</span><br><span class="line">	 <span class="class"><span class="keyword">struct</span> <span class="title">A</span>.<span class="title">x</span> = 20;</span> <span class="class"><span class="keyword">struct</span> <span class="title">A</span>.<span class="title">y</span> = 70;</span></span><br><span class="line">	 draw(A;)</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//In CPP</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">point</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="keyword">int</span> x; 				<span class="comment">// ATTRIBUTES</span></span><br><span class="line">	<span class="keyword">int</span> y;				<span class="comment">// ATTRIBUTES</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">draw</span><span class="params">(...)</span></span>&#123;...&#125; 	<span class="comment">//Methods</span></span><br><span class="line"><span class="comment">// Let's write a function to reset x coordnite</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setx</span><span class="params">(<span class="keyword">int</span> new_x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	x = new_x;</span><br><span class="line">&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"> <span class="function">point <span class="title">A</span><span class="params">()</span></span>;</span><br><span class="line"> A.x = <span class="number">20</span>; A.y = <span class="number">70</span>;</span><br><span class="line"> A.draw();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="C">//In standered C
+struct point
+{
+ int x;
+ int y;
+}
+void draw (struct point p)
+{
+  //.....
+}
+
+int main()
+{
+  sturct point A;
+  struct A.x = 20; struct A.y = 70;
+  draw(A;)
+}</code></pre>
+<pre><code class="CPP">//In CPP
+class point
+{
+ public:
+     int x;                 // ATTRIBUTES
+     int y;                // ATTRIBUTES
+ void draw(...){...}     //Methods
+ // Let&#39;s write a function to reset x coordnite
+ void setx(int new_x)
+ {
+     x = new_x;
+ }
+};
+
+int main()
+{
+  point A();
+  A.x = 20; A.y = 70;
+  A.draw();
+}</code></pre>
 <h3 id="writeing-class-methods"><a href="#writeing-class-methods" class="headerlink" title="writeing class methods"></a>writeing class methods</h3><ol>
 <li>Inline</li>
-<li>Separately (code + header)<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// header A.h</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"> <span class="keyword">public</span>:</span><br><span class="line"> <span class="keyword">int</span> x;</span><br><span class="line"> <span class="function"><span class="keyword">void</span> <span class="title">setx</span> <span class="params">(<span class="keyword">int</span> new_x)</span></span>;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
+<li>Separately (code + header)<pre><code class="cpp">// header A.h
+class A
+{
+public:
+int x;
+void setx (int new_x);
+</code></pre>
 </li>
 </ol>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">include <span class="string">"A.h"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">A::setx</span><span class="params">(<span class="keyword">int</span> new_x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	x = new_x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>};</p>
+<pre><code>
+```cpp
+include &quot;A.h&quot;
 
-</li>
+ void A::setx(int new_x)
+ {
+     x = new_x;
+ }</code></pre></li>
 </ol>
-<p>Keyword “this” is a pointer<br>eg:<br> <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">include <span class="string">"A.h"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">A::setx</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">// x = x; obvisly won't work</span></span><br><span class="line">	<span class="keyword">this</span> -&gt; x = x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Keyword “this” is a pointer<br>eg:</p>
+<pre><code class="cpp"> include &quot;A.h&quot;
+
+    void A::setx(int x)
+    {
+        // x = x; obvisly won&#39;t work
+        this -&gt; x = x;
+    }</code></pre>
 <h3 id="Data-hiding"><a href="#Data-hiding" class="headerlink" title="Data hiding"></a>Data hiding</h3><ul>
 <li>public : visiable from everywhere</li>
 <li>protected : from the class it self</li>
 <li>private : only from inside the class</li>
 </ul>
 <h3 id="Constructor-and-Destructor"><a href="#Constructor-and-Destructor" class="headerlink" title="Constructor and Destructor"></a>Constructor and Destructor</h3><p><em>Constructor</em> is a function that called automaticly right after the creation of the class.<br>Constructor must have the <em>*same name</em> as the class, and must not have return type.<br><em>Destructor</em> is a special class method which called automatically when object is released.   </p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">point</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">private</span>:</span><br><span class="line">		<span class="keyword">int</span> x,y;</span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">	point (<span class="keyword">int</span> nx, <span class="keyword">int</span> ny)&#123;x=nx;y=ny;&#125;	<span class="comment">//constructor with multiple arguments</span></span><br><span class="line">	point (<span class="keyword">int</span> nx)&#123;x=nx; y=<span class="number">0</span>;&#125;			<span class="comment">//conversion constructor</span></span><br><span class="line">	point () &#123;x=<span class="number">0</span>; y=<span class="number">0</span>;&#125;				<span class="comment">//defult constructor</span></span><br><span class="line">	~point(<span class="comment">/*must be empty*/</span>) &#123;<span class="comment">/*body*/</span>&#125; <span class="comment">// destructor</span></span><br><span class="line">	point(<span class="keyword">const</span> point &amp;p) &#123;x=p.x; y=p.y;&#125;<span class="comment">//copy constructor</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="cpp">class point
+{
+    private:
+        int x,y;
+    public:
+    point (int nx, int ny){x=nx;y=ny;}    //constructor with multiple arguments
+    point (int nx){x=nx; y=0;}            //conversion constructor
+    point () {x=0; y=0;}                //defult constructor
+    ~point(/*must be empty*/) {/*body*/} // destructor
+    point(const point &amp;p) {x=p.x; y=p.y;}//copy constructor
+}</code></pre>
 <h4 id="when-is-the-copy-constructor-is-called"><a href="#when-is-the-copy-constructor-is-called" class="headerlink" title="when is the copy constructor is called:"></a>when is the copy constructor is called:</h4><ol>
 <li>Explicitly</li>
 <li>Passing as a fn param. by VALUE</li>
 <li>returning value</li>
 <li>Complex expression as temp. value</li>
 </ol>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">point</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">int</span> x,y;</span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">		point(<span class="keyword">int</span> new_x)&#123;x=new_x;y=<span class="number">0</span>;&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> x = <span class="number">5</span>;</span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">x</span><span class="params">(<span class="number">5</span>)</span></span>; <span class="comment">//There are the same. Because int is also a class</span></span><br><span class="line">	<span class="comment">//So we can do this</span></span><br><span class="line">	point A = <span class="number">50</span>;</span><br><span class="line">	<span class="function">point <span class="title">A</span><span class="params">(<span class="number">50</span>)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="cpp">class point
+{
+    int x,y;
+    public:
+        point(int new_x){x=new_x;y=0;}
+}
+int main()
+{
+    int x = 5;
+    int x(5); //There are the same. Because int is also a class
+    //So we can do this
+    point A = 50;
+    point A(50);
+}</code></pre>
 <h2 id="Dynamic-menery-management"><a href="#Dynamic-menery-management" class="headerlink" title="Dynamic menery management"></a>Dynamic menery management</h2><p>```C<br>// In C<br>int* x;<br>x = (int<em>)malloc(5</em>sizeof(int));<br>free(x);<br>//  ^^^^^ this is a cast.</p>
 <p>// In CPP<br>x = new int[5];<br>delete[] p;</p>
 
